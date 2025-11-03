@@ -140,6 +140,31 @@ img, video { max-width: 100%; height: auto; display: block; }
 .lead { font-size: clamp(16px, 3.9vw, 18px); }
 .prize { font-size: clamp(32px, 10vw, 64px); }
 
+
+/* All images scale automatically and never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px; /* optional soft edges */
+  object-fit: cover;   /* keeps ratio without stretching */
+}
+
+/* Optional: control hero image height on mobile */
+.hero-image img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .hero-image img {
+    max-height: 260px;
+  }
+}
+
+
 /* Reduce motion preference */
 .reduce-motion * { transition: none !important; animation: none !important; }
 

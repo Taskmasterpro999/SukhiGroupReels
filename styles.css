@@ -168,3 +168,25 @@ img {
 /* Reduce motion preference */
 .reduce-motion * { transition: none !important; animation: none !important; }
 
+
+
+/* Fix white background wrapping & overlap in headline */
+.hero-text h1 {
+  font-size: clamp(26px, 4.5vw, 44px);
+  line-height: 1.2; /* adds breathing space between lines */
+  font-weight: 700;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.hero-text .accent {
+  background: #fff;
+  color: var(--red);
+  padding: 4px 10px;
+  border-radius: 10px;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone; /* ensures rounded background continues on wrapped line */
+}
+
+

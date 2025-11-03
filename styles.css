@@ -75,3 +75,71 @@ html,body{ margin:0; padding:0; font-family:"Poppins", system-ui,-apple-system,S
   .grid.two{ grid-template-columns:1fr; }
   .nav{ display:none; } /* Keep header clean on mobile; can add a burger later */
 }
+/* --- Mobile-first touch improvements --- */
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* Buttons: easier taps on mobile */
+.btn { min-height: 44px; line-height: 1.2; }
+.cta-row .btn { width: 100%; }           /* full width on small screens */
+.caption { min-height: 140px; }          /* comfortable typing area */
+
+/* Header: hamburger on mobile */
+.menu-btn {
+  display: none;
+  background: var(--red);
+  color: #fff;
+  border: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* Nav overlay for mobile */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+@media (max-width: 900px) {
+  .menu-btn { display: inline-block; }
+  .nav {
+    position: fixed;
+    inset: 64px 16px auto 16px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.15);
+    display: none;                /* hidden by default */
+    flex-direction: column;
+    gap: 12px;
+    z-index: 60;
+  }
+  .nav.open { display: flex; }    /* toggled via JS */
+  .nav a { width: 100%; text-align: center; padding: 10px 8px; }
+}
+
+/* Hero grid stacks nicely */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; padding: 40px 0; }
+  .cta-row { gap: 10px; }
+}
+
+/* Section grids stack */
+@media (max-width: 900px) {
+  .grid.two { grid-template-columns: 1fr; }
+}
+
+/* Footer stack */
+@media (max-width: 900px) {
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* Typography clamps for small screens */
+.hero-text h1 { font-size: clamp(24px, 6vw, 44px); }
+.lead { font-size: clamp(16px, 3.9vw, 18px); }
+.prize { font-size: clamp(32px, 10vw, 64px); }
+
+/* Reduce motion preference */
+.reduce-motion * { transition: none !important; animation: none !important; }
+
